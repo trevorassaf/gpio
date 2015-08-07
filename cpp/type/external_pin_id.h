@@ -3,13 +3,13 @@
 #include <cstdint>
 
 namespace Gpio {
-  class InPinId {
+  class ExternalPinId {
 
     private:
-      const uint8_t _internalPinId;
+      const uint8_t _externalPinId;
 
     public:
-      InPinId(uint8_t internal_pin_id);
+      ExternalPinId(uint8_t external_pin_id);
       uint8_t getNumber() const;
   };
 };

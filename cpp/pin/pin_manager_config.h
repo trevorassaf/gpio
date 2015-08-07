@@ -1,14 +1,18 @@
 #pragma once
 
-#include <cstdint>
+#include <type/external_pin_id.h>
+#include <type/external_pin_id_keyer.h>
+
 #include <unordered_map>
 
 namespace Gpio {
 
   class PinManagerConfig {
 
+    public:
+      typedef std::unordered_map<Gpio::ExternalPinId, Gpio::PinConfig, Gpio::ExternalPinIdKeyer> PinConfigMap;
+
     private:
-      typedef std::unordered_map<uint8_t, Gpio::PinConfig> PinConfigMap;
       const PinConfigMap _pinConfigMap;
 
     public:
@@ -17,6 +21,8 @@ namespace Gpio {
       );
 
       uint8_t getPinCount() const;      
-      const Gpio::PinConfig & getPinConfig(uint8_t external_pin_index) const;
+      const Gpio::PinConfig & getPinConfig(const Gpio::ExternalPinId & id) const;
+      bool hasExternalPinId(const Gpio::ExternalPinId & id) const;
+      const PinConfigMap & getPinConfigMap() const;
   };
 };
