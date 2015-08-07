@@ -7,7 +7,6 @@
 #include <cstdint>
 
 namespace Gpio {
-
   class Pin {
 
     private:

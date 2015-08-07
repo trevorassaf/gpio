@@ -3,6 +3,8 @@
 #include <type/external_pin_id.h>
 #include <type/external_pin_id_keyer.h>
 
+#include <pin/pin_config.h>
+
 #include <unordered_map>
 
 namespace Gpio {
@@ -17,7 +19,7 @@ namespace Gpio {
 
     public:
       PinManagerConfig(
-          const Gpio::PinConfigMap pin_config_map    
+          const PinConfigMap pin_config_map    
       );
 
       uint8_t getPinCount() const;      

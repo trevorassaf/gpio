@@ -1,6 +1,7 @@
 #pragma once
 
 #include <type/internal_pin_id.h>
+#include <cstdlib>
 
 namespace Gpio {
   struct InternalPinIdKeyer {
