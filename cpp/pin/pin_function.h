@@ -1,7 +1,9 @@
 #pragma once
 
 namespace Gpio {
-  enum class AlternativePinFunction {
+  enum class PinFunction {
+    INPUT,
+    OUTPUT,
     AF_0,
     AF_1,
     AF_2,
