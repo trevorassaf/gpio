@@ -1,9 +1,9 @@
-#include <pin_manager_config.h>
+#include "pin_manager_config.h"
 
 #include <stdexcept>
 
 Gpio::PinManagerConfig::PinManagerConfig(
-    const Gpio::PinConfigMap & pin_config_map    
+    const Gpio::PinManagerConfig::PinConfigMap & pin_config_map    
 ) :
     _pinConfigMap(pin_config_map)
 {}

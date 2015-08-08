@@ -12,14 +12,14 @@ namespace Gpio {
   class PinManagerConfig {
 
     public:
-      typedef std::unordered_map<Gpio::ExternalPinId, Gpio::PinConfig, Gpio::ExternalPinIdKeyer> PinConfigMap;
+      typedef std::unordered_map<Gpio::ExternalPinId, Gpio::PinConfig> PinConfigMap;
 
     private:
       const PinConfigMap _pinConfigMap;
 
     public:
       PinManagerConfig(
-          const PinConfigMap pin_config_map    
+          const PinConfigMap & pin_config_map    
       );
 
       uint8_t getPinCount() const;      

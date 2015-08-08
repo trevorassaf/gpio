@@ -13,7 +13,7 @@ namespace Gpio {
   class PinManager {
 
     private:
-      typedef std::unordered_map<Gpio::ExternalPinId, Gpio::Pin, Gpio::ExternalPinIdKeyer> PinMap;
+      typedef std::unordered_map<const Gpio::ExternalPinId, Gpio::Pin> PinMap;
       PinMap _pinMap;
 
       void initializePinMap(
