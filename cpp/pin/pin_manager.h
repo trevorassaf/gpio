@@ -2,6 +2,8 @@
 
 #include <type/external_pin_id.h>
 
+#include <system_module/system_module.h>
+
 #include <pin/pin.h>
 #include <pin/pin_manager_config.h>
 #include <pin/pin_config.h>
@@ -21,6 +23,8 @@ namespace Gpio {
           Gpio::ExternalPinIdKeyer> PinMap;
 
       PinMap _pinMap;
+
+      Gpio::SystemModule * _systemModule;
 
       void initializePinMap(
           const Gpio::PinManagerConfig pin_manager_config    

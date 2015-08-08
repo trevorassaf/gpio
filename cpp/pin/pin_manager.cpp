@@ -5,23 +5,29 @@
 void Gpio::PinManager::initializePinMap(
     const Gpio::PinManagerConfig pin_manager_config    
 ) {
-  // TODO: initialize memory mapped file
-  //
   const Gpio::PinManagerConfig::PinConfigMap & pin_config_map = pin_manager_config.getPinConfigMap();
   _pinMap.reserve(pin_config_map.size());
   for (const auto & pin_config_map_entry : pin_config_map) {
-    _pinMap[pin_config_map_entry.first] = new Gpio::Pin(pin_config_map_entry.second);
+    _pinMap[pin_config_map_entry.first] =
+        new Gpio::Pin(
+            pin_config_map_entry.second,
+            _systemModule    
+        );
   }
 }
 
 Gpio::PinManager::PinManager(
     const Gpio::PinManagerConfig pin_manager_config    
-) {
+) :
+    _systemModule(new Gpio::SystemModule())
+{
   initializePinMap(pin_manager_config); 
 }
 
 Gpio::PinManager::~PinManager() {
-// TODO: close memory mapped file
+  delete _systemModule;
+  _systemModule = nullptr;
+  // TODO: Free Pin memory
 }
 
 bool Gpio::PinManager::hasPin(
