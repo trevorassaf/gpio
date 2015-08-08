@@ -10,7 +10,7 @@ void Gpio::PinManager::initializePinMap(
   const Gpio::PinManagerConfig::PinConfigMap & pin_config_map = pin_manager_config.getPinConfigMap();
   _pinMap.reserve(pin_config_map.size());
   for (const auto & pin_config_map_entry : pin_config_map) {
-    _pinMan[pin_config_map_entry.first] = Gpio::Pin(pin_cofig_map_entry.second);
+    _pinMap[pin_config_map_entry.first] = new Gpio::Pin(pin_config_map_entry.second);
   }
 }
 
@@ -37,5 +37,5 @@ Gpio::PinManager::getPin(
   if (!hasPin(id)) {
     throw std::runtime_error("Invalid external pin id!");
   }
-  return _pinMap.at(id);
+  return *_pinMap.at(id);
 }

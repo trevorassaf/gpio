@@ -7,6 +7,9 @@
 #include <cstdint>
 
 namespace Gpio {
+
+  class PinManager;
+
   class Pin {
 
     private:
@@ -17,7 +20,7 @@ namespace Gpio {
       friend class Gpio::PinManager;
       Pin(const Gpio::PinConfig & pin_config);
       ~Pin();
-
+     
     public:
       void setPinMode(Gpio::PinMode pin_mode);
       bool level() const;

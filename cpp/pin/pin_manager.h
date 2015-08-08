@@ -1,7 +1,6 @@
 #pragma once
 
 #include <type/external_pin_id.h>
-#include <type/external_pin_id_keyer.h>
 
 #include <pin/pin.h>
 #include <pin/pin_manager_config.h>
@@ -10,10 +9,17 @@
 #include <unordered_map>
 
 namespace Gpio {
+
+  class Pin;
+
   class PinManager {
 
     private:
-      typedef std::unordered_map<const Gpio::ExternalPinId, Gpio::Pin> PinMap;
+      typedef std::unordered_map<
+          const Gpio::ExternalPinId,
+          Gpio::Pin *,
+          Gpio::ExternalPinIdKeyer> PinMap;
+
       PinMap _pinMap;
 
       void initializePinMap(

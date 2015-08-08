@@ -1,5 +1,7 @@
 #include "pin_manager_config.h"
 
+#include <type/external_pin_id.h>
+
 #include <stdexcept>
 
 Gpio::PinManagerConfig::PinManagerConfig(
